@@ -14,7 +14,8 @@
         {% if user.is_authenticated %} Welcome {{ user.username }}
         <a href="{% url 'logout' %}">Log out</a>
         {% else %}
-        <a href="{'login'}">Log In</a>
+        <a href="{% url 'login' %}">Log In</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
         {% endif %}
       </div>
     </nav>
