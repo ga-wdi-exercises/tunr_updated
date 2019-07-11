@@ -6,7 +6,9 @@
 <h4>{{ artist.nationality }}</h4>
 
 <img src="{{ artist.photo_url }}" alt="" class="artist-photo" />
-
+<div>
+  <a href="{% url 'artist_delete' pk=artist.pk %}">DELETE</a>
+</div>
 <h3>Songs <a href="{% url 'song_create' %}">(+)</a></h3>
 <ul>
   {% for song in artist.songs.all %}
