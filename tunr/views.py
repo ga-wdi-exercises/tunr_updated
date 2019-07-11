@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from django.contrib.auth.decorators import login_required
 from .models import Artist, Song
 from .forms import ArtistForm, SongForm
 
@@ -24,6 +24,7 @@ def song_detail(request, pk):
     return render(request, 'tunr/song_detail.html', {'song': song})
 
 
+@login_required
 def artist_create(request):
     if request.method == 'POST':
         form = ArtistForm(request.POST)
@@ -35,6 +36,7 @@ def artist_create(request):
     return render(request, 'tunr/artist_form.html', {'form': form})
 
 
+@login_required
 def song_create(request):
     if request.method == 'POST':
         form = SongForm(request.POST)
@@ -46,6 +48,7 @@ def song_create(request):
     return render(request, 'tunr/song_form.html', {'form': form})
 
 
+@login_required
 def artist_edit(request, pk):
     artist = Artist.objects.get(pk=pk)
     if request.method == "POST":
@@ -58,6 +61,7 @@ def artist_edit(request, pk):
     return render(request, 'tunr/artist_form.html', {'form': form})
 
 
+@login_required
 def song_edit(request, pk):
     song = Song.objects.get(pk=pk)
     if request.method == "POST":
@@ -70,11 +74,13 @@ def song_edit(request, pk):
     return render(request, 'tunr/song_form.html', {'form': form})
 
 
+@login_required
 def artist_delete(request, pk):
     Artist.objects.get(id=pk).delete()
     return redirect('artist_list')
 
 
+@login_required
 def song_delete(request, pk):
     Song.objects.get(id=pk).delete()
     return redirect('song_list')
