@@ -9,6 +9,8 @@ flake8 = "*"
 [packages]
 django = "*"
 psycopg2-binary = "*"
+django-extensions = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.7"
