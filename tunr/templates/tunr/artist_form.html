@@ -1,0 +1,11 @@
+{% extends 'tunr/base.html' %} {% block content %}
+
+<h2>New Artist</h2>
+
+<form method="POST" class="artist-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="save btn btn-default">Save</button>
+</form>
+
+{% endblock %}
