@@ -19,7 +19,8 @@ from django.conf.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('tunr.urls'))
+    path('', include('tunr.urls')),
+    path('', include('accounts.urls')),
 ]
 
 # app.use('/books', require('./routes/books'))
